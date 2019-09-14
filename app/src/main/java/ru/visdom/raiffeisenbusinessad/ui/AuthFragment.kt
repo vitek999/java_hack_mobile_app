@@ -1,5 +1,6 @@
 package ru.visdom.raiffeisenbusinessad.ui
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import ru.visdom.raiffeisenbusinessad.R
 import ru.visdom.raiffeisenbusinessad.databinding.FragmentAuthBinding
@@ -14,6 +16,8 @@ import ru.visdom.raiffeisenbusinessad.viewmodels.AuthViewModel
 
 class AuthFragment : Fragment() {
     private lateinit var binding: FragmentAuthBinding
+
+    private var progressDialog: ProgressDialog? = null
 
     private val viewModel: AuthViewModel by lazy {
         val activity = requireNotNull(this.activity) {
@@ -34,11 +38,23 @@ class AuthFragment : Fragment() {
     }
 
     private fun init() {
-        binding.signInButton.setOnClickListener { viewModel.authUser(
-            binding.phoneNumberEditText.text.toString(),
-            binding.passwordEditText.text.toString()
-        ) }
+        binding.signInButton.setOnClickListener {
+            viewModel.authUser(
+                binding.phoneNumberEditText.text.toString(),
+                binding.passwordEditText.text.toString()
+            )
+        }
+
+        viewModel.isProgressShow.observe(this, Observer<Boolean> { isProgress ->
+            if (isProgress) showDialog() else hideDialog()
+        })
     }
+
+    private fun showDialog() {
+        progressDialog = ProgressDialog.show(this.activity, "", getString(R.string.please_wait))
+    }
+
+    private fun hideDialog() = progressDialog?.dismiss()
 
     private fun checkInputData(): Boolean {
         var isOk = true
