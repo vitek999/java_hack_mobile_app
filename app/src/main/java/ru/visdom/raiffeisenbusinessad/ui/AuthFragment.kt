@@ -46,6 +46,10 @@ class AuthFragment : Fragment() {
             )
         }
 
+        viewModel.isAuthed.observe(this, Observer<Boolean> {authed ->
+            // TODO: Navigate to main fragment
+        })
+
         viewModel.isProgressShow.observe(this, Observer<Boolean> { isProgress ->
             if (isProgress) showDialog() else hideDialog()
         })
