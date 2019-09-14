@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RaiffeisenBusinessAd</string>
+    <string name="phone_number">номер телефона</string>
+    <string name="logo_picture_description">logo picture</string>
+    <string name="password">Пароль</string>
+    <string name="login_button_text">Войти</string>
 </resources>
