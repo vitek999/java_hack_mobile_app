@@ -1,6 +1,7 @@
 package ru.visdom.raiffeisenbusinessad.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -123,7 +124,6 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
             } catch (e: Exception) {
-
                 // Clear the user preferences
                 UserPreferences.clear()
                 _isAuthed.value = false

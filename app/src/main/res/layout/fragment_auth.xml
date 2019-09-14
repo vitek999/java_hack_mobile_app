@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
                 android:hint="@string/password"
-                android:inputType="phone"
+                android:inputType="textPassword"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +72,7 @@
             android:layout_marginEnd="32dp"
             android:fontFamily="@font/roboto"
             android:text="@string/login_button_text"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
