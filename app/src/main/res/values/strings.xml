@@ -8,4 +8,5 @@
     <string name="length_phone_number_not_equal_eleven_error">Номер телефона указан неверно</string>
     <string name="empty_password_error">Не указан пароль</string>
     <string name="please_wait">Пожалуйста, подождите</string>
+    <string name="network_error">Ошибка авторизации</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import ru.visdom.raiffeisenbusinessad.R
 import ru.visdom.raiffeisenbusinessad.databinding.FragmentAuthBinding
 import ru.visdom.raiffeisenbusinessad.viewmodels.AuthViewModel
@@ -48,6 +49,19 @@ class AuthFragment : Fragment() {
         viewModel.isProgressShow.observe(this, Observer<Boolean> { isProgress ->
             if (isProgress) showDialog() else hideDialog()
         })
+
+
+        viewModel.eventNetworkError.observe(this, Observer<Boolean> {isError ->
+            if(isError) onNetworkError()
+        })
+    }
+
+    private fun onNetworkError() {
+        if (!viewModel.isNetworkErrorShown.value!!) {
+            Snackbar.make(binding.root, getString(R.string.network_error), Snackbar.LENGTH_SHORT)
+                .show()
+            viewModel.onNetworkErrorShown()
+        }
     }
 
     private fun showDialog() {
