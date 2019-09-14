@@ -2,6 +2,7 @@ package ru.visdom.raiffeisenbusinessad.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
+import ru.visdom.raiffeisenbusinessad.network.auth.UserDto
 
 object UserPreferences {
     private lateinit var preferences: SharedPreferences
@@ -16,12 +17,12 @@ object UserPreferences {
         preferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
     }
 
-    fun saveUser(userId: Long, userPhone: String, userPassword: String) {
+    fun saveUser(userDto: UserDto, userPassword: String) {
         val editor: SharedPreferences.Editor = preferences.edit()
         with(editor) {
-            putString(PREFERENCES_USER_PHONE, userPhone)
+            putString(PREFERENCES_USER_PHONE, userDto.phone)
             putString(PREFERENCES_USER_PASSWORD, userPassword)
-            putLong(PREFERENCES_USER_ID, userId)
+            putLong(PREFERENCES_USER_ID, userDto.id)
             apply()
         }
     }
