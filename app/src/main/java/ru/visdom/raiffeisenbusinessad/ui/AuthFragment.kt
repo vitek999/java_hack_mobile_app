@@ -40,10 +40,12 @@ class AuthFragment : Fragment() {
 
     private fun init() {
         binding.signInButton.setOnClickListener {
-            viewModel.authUser(
-                binding.phoneNumberEditText.text.toString(),
-                binding.passwordEditText.text.toString()
-            )
+            if(checkInputData()) {
+                viewModel.authUser(
+                    binding.phoneNumberEditText.text.toString(),
+                    binding.passwordEditText.text.toString()
+                )
+            }
         }
 
         viewModel.isAuthed.observe(this, Observer<Boolean> {authed ->
