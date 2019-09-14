@@ -4,4 +4,7 @@
     <string name="logo_picture_description">logo picture</string>
     <string name="password">Пароль</string>
     <string name="login_button_text">Войти</string>
+    <string name="empty_phone_number_error">Не указан номер телефона</string>
+    <string name="length_phone_number_not_equal_eleven_error">Номер телефона указан неверно</string>
+    <string name="empty_password_error">Не указан пароль</string>
 </resources>
