@@ -50,14 +50,19 @@ class AdsListFragment : Fragment() {
         binding.adsList.adapter = adapter
 
         viewModel.isProgressShow.observe(this, Observer<Boolean>{isProgress ->
-            if(isProgress) showDialog() else hideDialog()
+            binding.adSwipeRefresh.isRefreshing = isProgress
         })
 
         viewModel.ads.observe(this, Observer {
             it?.let{
                 adapter.data = it
+                //binding.adSwipeRefresh.isRefreshing = false
             }
         })
+
+        binding.adSwipeRefresh.setOnRefreshListener {
+            viewModel.update()
+        }
 
         viewModel.update()
     }
