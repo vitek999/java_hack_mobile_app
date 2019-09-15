@@ -20,7 +20,7 @@ object UserPreferences {
     fun saveUser(userDto: UserDto, userPassword: String) {
         val editor: SharedPreferences.Editor = preferences.edit()
         with(editor) {
-            putString(PREFERENCES_USER_PHONE, userDto.phone)
+            putString(PREFERENCES_USER_PHONE, userDto.login)
             putString(PREFERENCES_USER_PASSWORD, userPassword)
             putLong(PREFERENCES_USER_ID, userDto.id)
             apply()

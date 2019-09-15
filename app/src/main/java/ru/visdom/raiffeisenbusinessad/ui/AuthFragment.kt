@@ -80,20 +80,20 @@ class AuthFragment : Fragment() {
     private fun checkInputData(): Boolean {
         var isOk = true
 
-        if (TextUtils.isEmpty(binding.phoneNumberEditText.text)) {
-            binding.phoneNumberTextInputLayout.error = getString(R.string.empty_phone_number_error)
-            isOk = false
-        } else {
-            binding.phoneNumberTextInputLayout.error = ""
-        }
-
-        if (binding.phoneNumberEditText.text?.length != 10) {
-            binding.phoneNumberTextInputLayout.error =
-                getString(R.string.length_phone_number_not_equal_eleven_error)
-            isOk = false
-        } else {
-            binding.phoneNumberTextInputLayout.error = ""
-        }
+//        if (TextUtils.isEmpty(binding.phoneNumberEditText.text)) {
+//            binding.phoneNumberTextInputLayout.error = getString(R.string.empty_phone_number_error)
+//            isOk = false
+//        } else {
+//            binding.phoneNumberTextInputLayout.error = ""
+//        }
+//
+//        if (binding.phoneNumberEditText.text?.length != 10) {
+//            binding.phoneNumberTextInputLayout.error =
+//                getString(R.string.length_phone_number_not_equal_eleven_error)
+//            isOk = false
+//        } else {
+//            binding.phoneNumberTextInputLayout.error = ""
+//        }
 
         if (TextUtils.isEmpty(binding.passwordEditText.text)) {
             binding.passwordTextInputLayout.error = getString(R.string.empty_password_error)

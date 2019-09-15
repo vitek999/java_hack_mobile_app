@@ -1,4 +1,4 @@
-package ru.visdom.raiffeisenbusinessad.network.auth
+package ru.visdom.raiffeisenbusinessad.network.ad
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
@@ -11,16 +11,16 @@ import ru.visdom.raiffeisenbusinessad.utils.NetworkUrlConstants
 /**
  * A retrofit service to fetch a user
  */
-interface UserService {
+interface AdService {
 
-    @GET("user/login")
-    fun login(@Header("Authorization") token: String): Deferred<UserDto>
+    @GET("ad/user/ads")
+    fun getAds(@Header("Authorization") token: String): Deferred<List<AdDto>>
 }
 
 /**
  * Main entry point for network access
  */
-object UserNetwork {
+object AdNetwork {
     // Configure retrofit to parse JSON and use coroutines
     private val retrofit = Retrofit.Builder()
         .baseUrl(NetworkUrlConstants.BASE_URL)
@@ -28,5 +28,5 @@ object UserNetwork {
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
-    val userService = retrofit.create(UserService::class.java)
+    val adService = retrofit.create(AdService::class.java)
 }

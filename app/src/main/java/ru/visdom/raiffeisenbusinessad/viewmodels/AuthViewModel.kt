@@ -116,15 +116,18 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     UserNetwork.userService.login(getTokenFromPhoneAndPassword(phone, password))
                         .await()
 
+                Log.i("test", user.toString())
+
                 // Save the user to preferences
                 UserPreferences.saveUser(user, password)
 
-                _isAuthed.value = prevPhone == phone
+                _isAuthed.value = true
 
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
             } catch (e: Exception) {
                 // Clear the user preferences
+                e.printStackTrace()
                 UserPreferences.clear()
                 _isAuthed.value = false
                 _eventNetworkError.value = true
