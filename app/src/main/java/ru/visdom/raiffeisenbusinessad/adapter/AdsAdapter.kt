@@ -19,7 +19,8 @@ class AdsAdapter : RecyclerView.Adapter<AdsAdapter.ViewHolder>(){
         }
 
     init{
-        data = listOf(Ad(0, "1", "1", true), Ad(1, "1", "1", false))
+        data = listOf(Ad(0, "JavaHack", "Райффайзенбанк и компания Deworkacy проводят хакатон JAVA HACK для начинающих Java-разработчиков", true),
+            Ad(1, "HOT Challenge 2019", "Образовательная программа форума будет состоять из интенсивного обучения по индивидуальным трекам и самого хакатона «HOT Challenge 2019».", false))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

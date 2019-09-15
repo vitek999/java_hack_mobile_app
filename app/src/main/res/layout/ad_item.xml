@@ -45,7 +45,7 @@
 
             <TextView
                 android:id="@+id/ad_description"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/roboto"
@@ -55,6 +55,8 @@
                 android:textColor="#99000000"
                 android:textSize="14sp"
                 android:translationY="-1.8sp"
+                app:layout_constraintEnd_toEndOf="@+id/more_button"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/ad_title"
                 app:layout_constraintTop_toBottomOf="@+id/ad_title" />
 
