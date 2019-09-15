@@ -18,6 +18,10 @@ class AdsAdapter : RecyclerView.Adapter<AdsAdapter.ViewHolder>(){
             notifyDataSetChanged()
         }
 
+    init{
+        data = listOf(Ad(0, "1", "1", true), Ad(1, "1", "1", false))
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import ru.visdom.raiffeisenbusinessad.R
+import ru.visdom.raiffeisenbusinessad.adapter.AdsAdapter
 import ru.visdom.raiffeisenbusinessad.databinding.FragmentAdsLsitBinding
 
 class AdsListFragment : Fragment() {
@@ -29,5 +30,9 @@ class AdsListFragment : Fragment() {
             setTitleTextColor(context.resources.getColor(R.color.colorAccent))
             inflateMenu(R.menu.ads_list_menu)
         }
+
+        val adapter = AdsAdapter()
+        binding.adsList.adapter = adapter
+
     }
 }
