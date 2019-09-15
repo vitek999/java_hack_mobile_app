@@ -24,12 +24,10 @@ class AdsListFragment : Fragment() {
     }
 
     private fun init() {
-        with(binding.fullRecommendationToolbar){
+        with(binding.fullRecommendationToolbar) {
             setTitle(R.string.my_ad)
             setTitleTextColor(context.resources.getColor(R.color.colorAccent))
-            setTitleMargin(32,16,0,16)
-
+            inflateMenu(R.menu.ads_list_menu)
         }
-
     }
 }
